@@ -13,3 +13,8 @@ _site
 *.out
 *.toc
 .DS_Store
+
+*.code-workspace
+
+# VS Code "Local History" extension
+.history/

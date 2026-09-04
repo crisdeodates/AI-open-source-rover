@@ -1,0 +1,31 @@
+name: Parse parts lists
+
+on: 
+  pull_request:
+  push:
+    branches: [master, v2]
+
+jobs:
+  generate_md:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: generate_parts_list_md
+        run: |
+          cd parts_list
+          python3 csv_to_md.py
+      # On pull requests: check the generated file is up to date and fail with a clear message if not
+      - name: Check for outdated generated files
+        if: github.event_name == 'pull_request'
+        run: |
+          if ! git diff --exit-code -- parts_list/README.md; then
+            echo ""
+            echo "::error::parts_list/README.md is out of date. Please run 'cd parts_list && python3 csv_to_md.py' locally and commit the result."
+            exit 1
+          fi
+      # On direct pushes to repo branches: auto-commit the generated files if changed
+      - if: github.event_name == 'push'
+        uses: int128/update-generated-files-action@v2

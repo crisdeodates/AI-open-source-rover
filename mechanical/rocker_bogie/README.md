@@ -2,162 +2,154 @@
 
 The Rocker-Bogie is the suspension system that enables the rover to climb aggressive obstacles. The design allows all 6 wheels to be in contact with the ground as much as possible, increasing traction.  The suspension system on a typical consumer vehicle can traverse obstacles about half the height of one wheel; the Rocker-Bogie suspension system can traverse obstacles over 2 times the height of the wheel.
 
-<img src="../../images/rocker_bogie/rocker_bogie_title.png" width="60%">
+![rocker bogie](images/rocker_bogie.png)
 
-## 1. Features
+## Features
 
 * Modular link lengths give the ability to customize rover geometry
 * Optimized for climbing in the forwards direction
 * Rigid support structure resists lateral bending/twisting about the Bogie joint
 
-## 2. Information about module
+## Mechanical Interface/Attachments to Rover
 
-| Author/Creator            | JPL       |
-| --------------            | -------            |
-| Cost without 3D printer   | 203.94             |
-| Cost with 3D printer      | 203.94             |
-| Date Added                | 4/11               |
-| Group/Organization/School | JPL                |
-| Time to build             | 5 hrs              |
+* Servo block output shafts connect to corner motor assemblies
+* rocker-bogie connects to the body axis clamp via two brackets that are detailed in the [body assembly section](../body/README.md#assemble-the-bearing-support-structures-that-connect-to-the-rocker-bogie)
+* middle drive motor connects to the extruded shaft at the bottom
 
-### 2.1 Skills
+## Assembly
 
-* Band Saw/Dremel
+You will be creating two almost identical assemblies. Below instructions are for one side. We recommend building one side first rather than trying to build both sides in parallel, that way you'll be able to make the other side faster. Before you start building, familiarize yourself with the details of this assembly, in particular because you'll be building two assemblies that are mirrorred. Specifically, you'll want the open slits on the bogie to be facing the same side:
 
-### 2.2 Tools
+| close up showing slits                         |
+| ---------------------------------------------- | 
+| <img src="images/slit_direction_closeup.png" height=400/>  |
 
-* Band Saw/Dremel
+### Creating the rocker-bogie joint
 
-#### 2.2.1 Mandatory
+First, gather the parts you'll need for the joint that connects the rocker to the bogie.
 
-* Band saw or Dremel
-* Allen Key set
-* Imperial Wrench Set
+| Joint Parts |
+| ---------------------------------------------- | 
+| <img src="images/joint_parts.jpg" height=400/>  |
 
-#### 2.2.2 Optional
+Assemble the joint following the steps below. Since the clamp in the middle isn't symmetric and protrudes on one side, two spacers of different lengths are used. You can see this in the top left image. You'll use spacer `1522-0010-0040` of length 4mm on the side of the clamp that has the protrusion, while on the other, flat side, you'll use spacer `1514-0010-0060` of length 6mm. This creates a tight assembly that prevents the joint from flexing from side to side.
 
-### 2.3 Dependencies on Other Modules
+| ![](images/pivot_start.png)            | ![](images/pivot_almost.png)        |
+| -------------------------------------- | ----------------------------------- |
+| ![](images/pivot_complete_inplace.png) | ![](images/pivot_complete_side.png) |
 
-* None
+Wait with the yellow and orange (ball bearing) parts. The bearing should first be inserted into the yellow hub.
 
-### 2.4 Mechanical Interface/Attachments to Rover
+> **Tip**: Use the OnShape model and navigate to the tab 'rocker-bogie' in the bottom to isolate this assembly. Then right click on various parts to temporarily hide them so you can see how the assembly works in 3D.
 
-* Actobotics channel and channel connectors to middle wheel assembly
-* Actobotics channel and channel connectors to corner steering assembly
-* 1/2 inch clamping hub to 1/2 aluminum rod on differential pivot
-* 1/2 bearing blocks to 1/2 aluminum rod on body
+### Attach the control arms to the joint bearings
 
-## 3. Machining/Fabrication
+Referencing the orange and yellow parts in the image below, connect the hub (yellow) with the inserted bearing to the control arm using 8x socket or button M4 screws of length 12mm (or 10mm). Use washers so that the screw doesn't bury itself in the plastic control arm and to make sure the screw doesn't extend (much) on the insides of the hubs. When done, the bearing should not be able to fall out. Put these two assemblies aside for now. We'll connect each finished joint to the rockers in the following step.
 
-| Item | Ref | Qty | Image | Item | Ref | Qty | Image |
-| :--- | :-- | :-- | :---: | :--- | :-- | :-- | :---: |
-| 3" Channel            | S2 | 4 | <img src="../../images/components/structural/S2.png" width="200"> | Metal Hacksaw or Bandsaw | D4 |  | <img src="../../images/components/tools/D4.png" width="200"> |
+![exploded view of the rocker-bogie joint](images/exploded_view.png)
 
-### 3.1 Cutting the Aluminum Channels
+### Create the bogie
 
-On piece **S2**, measure the distance shown in Figure 1 from the edge and mark a straight line from the opposite corner to that point. Cut off the corner along that line. We use this piece to make the geometry of the rocker-bogie more structurally reinforced across its lateral bending moment. However, these channels will need to have their corners cut out because of clearance issues further on. In total, you will need 4 of these modified pieces. Cut those now.
+Attach a 3 hole x 5 hole plate `1116-0024-0040` to each of two length 96mm aluminum extrusions `1118-0024-0096` with 10mm button head screws as shown below.  Pay attention to direction of the slits for the cabling. You'll want the slit to face the short side of the plate.
 
-| <img src="../../images/rocker_bogie/channel_cut.png" height="250"> <img src="../../images/rocker_bogie/3_inch_channel.png" height="250"> |
-|:-:|
-| Figure 1: Channel Cutting Dimensions |
+Now attach the plate to a 3-hole flat beam, and to the bogie joint, with 10mm socket head screws.  You'll want the slits to face the top of the rover (the bogie arm) so you can route the cabling going to the front servo and motor inside of the channel.
 
-### 3.2 Cutting the Aluminum Rod
+| Plate on bogie shaft| Assembled bogie |
+| ---------------------------------------------- | ---------------------------------------------- | 
+| <img src="images/bogie_w_plate.jpg" height=400/>  | <img src="images/joints_assembled.jpg" height=400/>  |
 
-Take the 4 inch aluminum rod **S18** and cut it down to 3 inches long, indicated by Figure 2. These cuts keep the rod from sticking out too far from either end of the rocker-bogie pivot joint. In total, you will need 2 of these 3-inch aluminum rods. Cut those now.
+#### Attach the front servo bracket and middle wheel bracket
 
-| <img src="../../images/rocker_bogie/rod_cut.png" height="200"> |
-|:-:|
-| Figure 2: Aluminum Rod cutting dimensions |
+Attach bracket `1111-0003-0001` to the top of the extruded shaft you just attached to the joint using three or four M4 screws.
 
-## 4. Mechanical/structural Assembly
+Attach U channel `1120-0002-0072` to the bottom of the other extruded shaft you just attached to the joint using three or four M4 screws.
 
-The Rocker-Bogie assembly is what attaches your wheels to the rover's body and allows it to climb over obstacles.
+#### Route wiring through bogie
 
-| Item | Ref | Qty | Image | Item | Ref | Qty | Image |
-| :--- | :-- | :-- | :---: | :--- | :-- | :-- | :---: |
-| 3" Channel (Modified) | S2A | 4 | <img src="../../images/components/structural/S2A.png" width="200"> | #6 Washer  | W1 | 28  | <img src="../../images/components/washers/W1.png" width="70"> |
-| 3.75" Channel | S3 | 4 | <img src="../../images/components/structural/S3.png" width="200"> | 0.5" Nylon Washer  | W3 | 12  | <img src="../../images/components/washers/W3.png" width="70"> |
-| 9" Channel | S5 | 2 | <img src="../../images/components/structural/S5.png" width="200"> | #6 x 1/4" Standoff  | T1 | 32  | <img src="../../images/components/standoffs/T1.png" width="70"> |
-| Pattern F Bracket | S7 | 8 | <img src="../../images/components/structural/S7.png" width="200"> | #6-32 x 3/8" Button Head Screw  | B2 | 40  | <img src="../../images/components/screws/B2.png" width="70"> |
-| 0.5” Pillow Block | S11 | 4 | <img src="../../images/components/structural/S11.png" width="200"> | #6-32 x 5/8" Button Head Screw  | B4 | 32  | <img src="../../images/components/screws/B3.png" width="70"> |
-| 0.5” Face Tapped Clamping Hub | S13 | 2 | <img src="../../images/components/structural/S13.png" width="200"> | #6-32 Locking Hex Net  | B11 | 68  | <img src="../../images/components/screws/B11.png" width="70"> |
-| 0.5" x 3" Aluminum Tube (Modified) | S18A | 2 | <img src="../../images/components/structural/S18A.png" width="200"> | Allen Key Set  | D2 |  | <img src="../../images/components/tools/D2.png" width="200"> |
-| 0.5” Collar Clamp | S22 | 4 | <img src="../../images/components/structural/S22.png" width="200"> | 5/16 Wrench  | D1 |   | <img src="../../images/components/tools/D1.png" width="200"> |
+Install `2911-0014-0001` grommets at the top and bottom of the extruded aluminum goRail (inside the U channel on the bottom, and inside the servo bracket on the top), to protect your wires as they go around corners.
 
-### 4.1 Begin the Rocker Attachment
+Run the servo wiring, including a 54cm extension, down from the front servo, which should be near the front servo bracket, down toward the joint.  
 
-Attach 9 inch channel **S5** and the a modified 3 inch channel **S2A** to pattern F bracket **S7** using screws **B2** and hex nuts **B11** making sure to put a 6-32 washer **W1** in between the channels and the bracket. Make sure that the cut modification in **S2A** is angled towards the 9 inch channel as shown in Figure 4.
+Run the 54cm encoder wires for the front corner motor from the front servo bracket toward the joint.
 
-| <img src="../../images/rocker_bogie/step_1.png" height="200"> <img src="../../images/rocker_bogie/step_1a.png" height="200"> <img src="../../images/rocker_bogie/step_2.png" height="200"> |
-|:-:|
-| Figure 3: Begin the Rocker attachment |
+Run the middle motor power wiring from the U channel up toward the joint.
 
-### 4.2 Start the bogie pivot joint
+Run the middle motor encoder wires from the joint down to the U channel (or as shown in the picture, around it if you choose to notch your shafts), and encase in the protective sleeve.  
 
-Put rod **S18A** though the last hole in the pattern F bracket. Then,  assemble the pivot joint by attaching another modified 3 inch channel **S2A** and another pattern F bracket using washers **W3**, collar clamp **S22**, standoffs **T1**, and screws **B4**. Make sure to use the 2nd from the bottom hole on the 2nd pattern F bracket. See Figure 4.
+It should look like the last picture below, except that your servo block and servo won't be installed at this point.
 
-| <img src="../../images/rocker_bogie/step_3.png" height="300"> <img src="../../images/rocker_bogie/step_4.png" height="300"> |
-|:-:|
-| Figure 4: Start Rocker-Bogie pivot joint |
+|![bogie parts step 1](images/bogie_parts_step1.jpg) 
+| --------- | 
+| Bogie wiring installed.  |
 
-### 4.3 Attachment for Front Corner
+#### Attach the front servo and servo block
 
-Attach 3.75 inch channel **S3** to the top hole of the pattern F bracket using spacers **T1**, screws **B4**, and hex nuts **B11** as shown in Figure 5.
+Attach bracket `1111-0003-0001` to the extruded shaft you just attached to the joint using three or four M4 screws.
 
-| <img src="../../images/rocker_bogie/step_5.png" height="300"> <img src="../../images/rocker_bogie/step_6.png" height="300"> |
-|:-:|
-| Figure 5: Attaching channel to corner steering |
+Then assemble the servo block to the servo motor. Insert the set screw that came with the servo inside the hollow shaft that fits onto the spline profile on the servo output, but don't tighten it yet as we'll have to readjust later when calibrating the corner motors. This screw prevents the corner assembly from falling off the rocker-bogie while driving. Finally, attach the servo motor and block to the front rocker-bogie bracket. The image below shows the resulting assembly.
 
-### 4.4 Attachment for middle Wheel
+| ![bracket and bogie joint](images/front_servo_to_rb.png) |
+| --- |
+| Bracket and Bogie Joint |
 
-Attach another 3.75 inch channel **S3** to the bottom hole of the pattern F bracket using spacers **T1**, screws **B4**, and hex nuts **B11** as shown in Figure 6.
+### Connect the control arms and rocker to the joint
 
-| <img src="../../images/rocker_bogie/step_8.png" height="300"> <img src="../../images/rocker_bogie/step_9.png" height="300"> |
-|:-:|
-| Figure 6: Attachment for middle wheel |
+Take one of the control arms (black plastic piece) with bearing and hub you made in an earlier step and attach the steel bracket, a [goRail Nut (5 Hole)](https://www.gobilda.com/gorail-nut-5-hole-2-pack/), and 7x socket screws with washers like in the image.
 
-### 4.5 Opposite edge of Rocker-Bogie Joint
+![attaching the shaft from the rocker to the bogie joint](images/rocker_extr_to_bogie_joint.png)
 
-Attach another Pattern F bracket **S7** to the opposite side of the channels using washers **W1** and **W3**, screws **B2**, and hex nuts **B11** as shown in Figure 7.
+> [!NOTE]
+> If you don't have the goRail nut (5 Hole) which was introduced July 2026, use three hurricane nuts instead. See the collapsed section below.
 
-| <img src="../../images/rocker_bogie/step_9a.png" height="300"> <img src="../../images/rocker_bogie/step_9b.png" height="300"> |
-|:-:|
-| Figure 7: Start the other side of Rocker-Bogie joint|
+<details>
 
-### 4.6 Other edge of Rocker-Bogie Joint (2)
+<summary>Instructions for when you don't have the goRail nuts</summary>
 
-Using washers **W1**, collar clamp **S22**,  spacers **T1**, and screws **B10** attach pattern F bracket to the final connecting channels as shown in Figure 8.
+If the screws don't slide freely through the holes in the black control arm, drill the holes out to make sure the hurricane nuts rotate and lock in place in the rail.
 
-| <img src="../../images/rocker_bogie/step_10.png" height="300"> <img src="../../images/rocker_bogie/step_11.png" height="300"> |
-|:-:|
-| Figure 8: Other edge of Rocker-Bogie joint |
+![picture of the control arm assembly](images/control_arm_assembly.jpg)
 
-### 4.7 Checkpoint
+Unlike the image, use 3 hurricane nuts instead of 2. Connect the short part of the rocker (shaft `1110-0024-00096`) to the control arm on one side such that the hurricane nuts fit all the way in the channel.  Tighten such that you can still slide the control arm relative to the channel.  Make sure the slit faces the underside/back of the rover (you can also point the slit upwards or downwards if you prefer). The hurricane nuts have a tendency to seem stuck without actually getting their small 'wings' locked in the channel. If they're not properly inserted, the assembly will not have the required rigidity.
 
-At this point your rocker bogie joint should look like Figure 9.
+</details>
+<br />
 
-| <img src="../../images/rocker_bogie/final_1.png" height="300"> <img src="../../images/rocker_bogie/final_2.png" height="300"> |
-|:-:|
-| Figure 9: Rocker-Bogie Checkpoint |
+Repeat for the other control arm.
 
-### 4.8 Attach Bearing Blocks
+Route the wiring coming from the front, middle, and rear motors and servos through the slit (see left image below). It helps to temporarily keep the wiring in place with some tape as you attach the shaft to the bogie joint.
 
-Attach two Pillow Bearing Blocks **S11** using screws **B2** and hex huts **B11** as shown in Figure 10. The bearing blocks should be aligned with the 5th large hole back from the front of the 9-inch U channel.
+Flip the assembly over and repeat on the other side, making sure the setup is symmetric. Now tighten the screws all the way.
 
-| <img src="../../images/rocker_bogie/step_13.png" height="300"> <img src="../../images/rocker_bogie/step_14.png" height="300"> |
-|:-:|
-| Figure 10: Pillow bearing block attachment|
+| ![wiring for bogie joint](images/wiring_bogiejoint.jpg) | ![wiring for bogie joint](images/wiring_bogiejoint_done.jpg) |
+| --- | --- |
+| Running wiring through short shaft of rocker | Joint installed. |
 
-### 4.9 Attach Clamping Hub
+> [!CAUTION]
+> the OnShape model may represent the orientation of the slits incorrectly. In order to make the model nimble, the same rocker-bogie assembly is used on both sides of the rover which has the side-effect that the two assemblies aren't mirrored like they are supposed to be. Always stop to think about what you're building to avoid having to take things apart later.
 
-Attach the Clamping Hub **S13** using screws **B2** as shown in Figure 11. The clamping hub should be centered above where you just placed the pillow bearing blocks.
+### Assemble the back servo
 
-| <img src="../../images/rocker_bogie/step_15.png" height="300"> <img src="../../images/rocker_bogie/step_16.png" height="300"> |
-|:-:|
-| Figure 11: Clamping hub attachment |
+Attach the 1-channel U bracket to the long extruded shaft `11118-0024-0288` using 3 or 4 M4 socket screws of length 10mm. Assemble another servo block as you did before. Insert this into the 1-channel bracket and attach using 6 button M4 screws of length 10mm (6mm or 8mm also works).
 
-Your rocker-bogie suspension joint is now complete!  Repeat all of section 2 in this document to create the suspension for the other side of the rover.
+### Attach the front and back of the rocker-bogie
 
-| <img src="../../images/rocker_bogie/rb_final.png" height="300"> |
-|:-:|
-| Figure 12: Finished Rocker-Bogie |
+Use 4 hurricane nuts and the 45-degree bracket to connect the front and back of the rocker-bogie with 6mm M4 socket screws, as shown in the image below, on the underside of the rover. Avoid screws longer than 6mm, as they will hit the goRail before fully tightening.
+
+![bottom view](images/connect45bracket.png)
+
+Flip the assembly over and attach the two brackets like in the picture below, using 4 more hurricane nuts and socket screws to secure the pieces to the rocker bogie aluminum extrusions. Then route all wires through the aluminum channel that will eventually slide into the rover body. The slit in the channel should orient in the direction where most of the cables enter it (flipped compared to the image below) but either direction works.
+
+| ![assembly with wiring](images/cabling-rocker-bogie.jpg) |
+| --- |
+| Wiring snugly fits inside the extruded aluminum channels, even with little or no sheathing. Only use this image as an idea of how the wiring should be routed, other parts of this image may not reflect the current state of the rocker-bogie at this stage in the process. |
+
+Secure the channel to the rocker-bogie using 5 hurricane nuts (2 at the bottom) and socket screws, making sure the channel end sits flush to the other channels and the wiring isn't squeezed inbetween.
+
+| ![top view](images/connect45topbracket.png) | ![screws](images/rocker-body-axis-screws.png) |
+| --- | ---|
+
+Repeat these steps for the other rocker-bogie, making sure it mirrors the first assembly. Once you're done, you're ready with these very important subassemblies!
+
+![complete assembly](images/rocker_bogie_assembled.jpg)
+
+> **Help improve documentation!** Please make an issue on Github when you spot something that's off or can be improved. Pull requests are even better! If you have a question, post in the #troubleshooting channel in our Slack group.
